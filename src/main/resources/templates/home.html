@@ -2,11 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Best of the Year</title>
+
+  <th:block th:replace="fragments/bootstrap :: bootstrap"></th:block>
 </head>
 
-<body>
-  <h1>Best of the year by <span th:text="${name}"></span></h1>
+<body class="container text-center m-5">
+  <header>
+    <th:block th:replace="fragments/navbar :: navbar"></th:block>
+  </header>
+
+  <main class="border border-dark border-top-0 p-5">
+    <div>
+      <h1>Best of the year by <span th:text="${name}"></span></h1>
+    </div>
+
+    <div class="border border-dark">
+      <img
+        src="https://randomwordgenerator.com/img/picture-generator/53e4d5464e54a514f1dc8460962e33791c3ad6e04e507749742c78d7974ec3_640.jpg"
+        alt="lama" class="img-fluid">
+    </div>
+
+    <div class="border border-dark border-top-0">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ea exercitationem distinctio, aliquid debitis unde
+        placeat omnis facilis molestias, assumenda ducimus! Ipsa optio quae deserunt sapiente cumque sunt inventore aut!
+      </p>
+    </div>
+  </main>
 </body>
 
 </html>

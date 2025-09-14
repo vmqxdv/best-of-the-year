@@ -1,0 +1,17 @@
+<!-- fragments/detail.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  <div th:fragment="detailFragment(title, item)">
+    <h1 class="pb-3 text-center" th:text="${title}"></h1>
+    <div class="card w-50 mx-auto text-center border-dark rounded-0">
+      <div class="card-body">
+        <h2 class="card-title" th:text="${item.title}"></h2>
+        <h4 class="card-subtitle mb-2 text-muted">Id: <span th:text="${item.id}"></span></h4>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

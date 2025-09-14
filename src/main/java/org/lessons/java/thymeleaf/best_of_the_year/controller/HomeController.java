@@ -1,7 +1,6 @@
 package org.lessons.java.thymeleaf.best_of_the_year.controller;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 import org.lessons.java.thymeleaf.best_of_the_year.model.Identifiable;
 import org.lessons.java.thymeleaf.best_of_the_year.model.Movie;
@@ -52,18 +51,14 @@ public class HomeController {
   @GetMapping("/movies")
   public String movies(Model model) {
     ArrayList<Movie> movies = getBestMovies();
-
-    String movieTitles = movies.stream()
-        .map(Movie::getTitle)
-        .collect(Collectors.joining(", "));
-    model.addAttribute("titles", movieTitles);
+    model.addAttribute("movies", movies);
 
     return "movies";
   }
 
   @GetMapping("/movies/{id}")
-  public String getMovieFromId(Model model, @PathVariable("id") String movieId) {
-    Movie movie = getItemFromId(2, getBestMovies());
+  public String getMovieFromId(Model model, @PathVariable("id") int movieId) {
+    Movie movie = getItemFromId(movieId, getBestMovies());
 
     model.addAttribute("movie", movie);
 
@@ -73,13 +68,18 @@ public class HomeController {
   @GetMapping("/songs")
   public String songs(Model model) {
     ArrayList<Song> songs = getBestSongs();
-
-    String songTitles = songs.stream()
-        .map(Song::getTitle)
-        .collect(Collectors.joining(", "));
-    model.addAttribute("titles", songTitles);
+    model.addAttribute("songs", songs);
 
     return "songs";
+  }
+
+  @GetMapping("/songs/{id}")
+  public String getSongFromId(Model model, @PathVariable("id") int songId) {
+    Song song = getItemFromId(songId, getBestSongs());
+
+    model.addAttribute("song", song);
+
+    return "songById";
   }
 
 }

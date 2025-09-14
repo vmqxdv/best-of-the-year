@@ -1,0 +1,16 @@
+<!-- fragments/list.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  <div th:fragment="listFragment(title, items, path)">
+    <h1 class="pb-3 text-center" th:text="${title}"></h1>
+    <ul class="list-group w-50 mx-auto text-center">
+      <li class="list-group-item border-dark rounded-0" th:each="item : ${items}">
+        <a th:href="@{|/${path}/${item.id}|}" th:text="${item.title}" class="text-decoration-none text-dark"></a>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

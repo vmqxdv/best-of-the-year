@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Best Songs</title>
-
+  <title>Song Detail</title>
   <th:block th:replace="fragments/bootstrap :: bootstrap"></th:block>
 </head>
 
@@ -13,11 +12,9 @@
   <header>
     <th:block th:replace="fragments/navbar :: navbar"></th:block>
   </header>
-
   <main class="border border-dark border-top-0 p-5">
-    <div th:replace="fragments/list :: listFragment('Best Songs', ${songs}, 'songs')"></div>
+    <div th:replace="fragments/detail :: detailFragment('Song Detail', ${song})"></div>
   </main>
-
 </body>
 
 </html>
