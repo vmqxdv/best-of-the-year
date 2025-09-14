@@ -49,8 +49,18 @@ public class HomeController {
         .collect(Collectors.joining(", "));
     model.addAttribute("titles", movieTitles);
 
-    System.out.println(movieTitles);
-
     return "movies";
+  }
+
+  @GetMapping("/songs")
+  public String songs(Model model) {
+    ArrayList<Song> songs = getBestSongs();
+
+    String songTitles = songs.stream()
+        .map(Song::getTitle)
+        .collect(Collectors.joining(", "));
+    model.addAttribute("titles", songTitles);
+
+    return "songs";
   }
 }
