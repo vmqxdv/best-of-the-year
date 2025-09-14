@@ -1,6 +1,6 @@
 package org.lessons.java.thymeleaf.best_of_the_year.model;
 
-public class Song {
+public class Song implements Identifiable {
   private int id;
   private String title;
 
@@ -9,6 +9,7 @@ public class Song {
     this.title = title;
   }
 
+  @Override
   public int getId() {
     return id;
   }

@@ -82,4 +82,13 @@ public class HomeController {
     return "songs";
   }
 
+  @GetMapping("/songs/{id}")
+  public String getSongFromId(Model model, @PathVariable("id") String songId) {
+    Song song = getItemFromId(2, getBestSongs());
+
+    model.addAttribute("song", song);
+
+    return "songById";
+  }
+
 }
