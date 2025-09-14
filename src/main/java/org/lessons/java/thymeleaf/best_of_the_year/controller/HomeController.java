@@ -1,7 +1,6 @@
 package org.lessons.java.thymeleaf.best_of_the_year.controller;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import org.lessons.java.thymeleaf.best_of_the_year.model.Movie;
