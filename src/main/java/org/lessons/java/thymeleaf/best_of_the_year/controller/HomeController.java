@@ -3,11 +3,13 @@ package org.lessons.java.thymeleaf.best_of_the_year.controller;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+import org.lessons.java.thymeleaf.best_of_the_year.model.Identifiable;
 import org.lessons.java.thymeleaf.best_of_the_year.model.Movie;
 import org.lessons.java.thymeleaf.best_of_the_year.model.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class HomeController {
@@ -31,6 +33,14 @@ public class HomeController {
     return songs;
   }
 
+  public <T extends Identifiable> T getItemFromId(int id, ArrayList<T> items) {
+    for (T item : items) {
+      if (item.getId() == id)
+        return item;
+    }
+    return null;
+  }
+
   // Mapping
   @GetMapping("/")
   public String home(Model model) {
@@ -51,6 +61,15 @@ public class HomeController {
     return "movies";
   }
 
+  @GetMapping("/movies/{id}")
+  public String getMovieFromId(Model model, @PathVariable("id") String movieId) {
+    Movie movie = getItemFromId(2, getBestMovies());
+
+    model.addAttribute("movie", movie);
+
+    return "movieById";
+  }
+
   @GetMapping("/songs")
   public String songs(Model model) {
     ArrayList<Song> songs = getBestSongs();
@@ -62,4 +81,5 @@ public class HomeController {
 
     return "songs";
   }
+
 }

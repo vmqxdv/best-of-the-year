@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Movies</title>
+</head>
+
+<body>
+
+  <div th:object="${movie}">
+    <h1>Titolo: [[*{title}]]</h1>
+    <h2>Id: [[*{id}]]</h2>
+  </div>
+
+</body>
+
+</html>
